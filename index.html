@@ -1,230 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de Design - Gustavo Strada</title>
-    <!-- === Box icons === -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="./favicons/Logo.ico" type="image/x-icon">
-    <!-- === /Box icons === -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Favicon (ícone da aba). O ?v=2 força o navegador a baixar de novo; se trocar a logo, suba para ?v=3 -->
+<link rel="icon" href="images/Gustavo_Strada_logo.png?v=2" type="image/png">
+<link rel="shortcut icon" href="images/Gustavo_Strada_logo.png?v=2" type="image/png">
+<link rel="apple-touch-icon" href="images/Gustavo_Strada_logo.png?v=2">
+<title>Galeria de Projetos | Gustavo Strada</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
-        <a href="https://stradagustavo.github.io/portfolio/" class="logo">
-            <img src="images/Gustavo Strada_logo.png" alt="Gustavo Strada" class="logo-img">
-        </a>
+<!-- ===== MENU: igual ao da home ===== -->
+<header><div class="wrap"><div class="bar">
+<a href="index.html#home"><img src="images/Gustavo_Strada_logo.png" alt="GS"></a>
+<nav>
+<a href="index.html#home" data-i18n="nav-home">Home</a>
+<a href="index.html#servicos" data-i18n="nav-services">Serviços</a>
+<a href="projetos.html" class="on" data-i18n="nav-portfolio">Projetos</a>
+<a href="#contato" data-i18n="nav-contact">Contato</a>
+</nav>
+<button class="lang" id="lang">EN</button></div></div></header>
 
-        <div class="nav">
-            <a href="../index.html#home"       data-i18n="nav-home">Home</a>
-            <a href="../index.html#education"  data-i18n="nav-education">Education</a>
-            <a href="../index.html#experience" data-i18n="nav-experience">Experience</a>
-            <a href="../index.html#services"   data-i18n="nav-services">Services</a>
-            <a href="../index.html#portifolio" data-i18n="nav-portfolio">Portfolio</a>
-        </div>
+<!-- ===== GALERIA ===== -->
+<main class="gallery"><div class="wrap">
 
-        <div class="nav-responsive">
-            <a href="../index.html#home"       data-i18n="nav-home">Home</a>
-            <a href="../index.html#education"  data-i18n="nav-education">Education</a>
-            <a href="../index.html#experience" data-i18n="nav-experience">Experience</a>
-            <a href="../index.html#services"   data-i18n="nav-services">Services</a>
-            <a href="../index.html#portifolio" data-i18n="nav-portfolio">Portfolio</a>
-        </div>
+<div class="g-intro">
 
-        <div class="lang-switcher">
-            <button class="lang-btn active" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" onclick="setLang('pt')">PT-BR</button>
-        </div>
+<div class="g-intro-text">
+<span class="mono g-eyebrow">Gustavo Strada</span>
+<h1><span data-i18n="gallery-title-a">Galeria de</span> <em data-i18n="gallery-title-b">Projetos</em></h1>
+<p class="lead" data-i18n="gallery-about">Sou desenvolvedor e designer. Trabalho com programação full stack (front-end e back-end) e com design de UX/UI e identidade visual, da primeira ideia até o produto no ar.</p>
+<p class="g-how" data-i18n="gallery-how">A galeria tem duas áreas: Design (identidades visuais, posts e interfaces) e Programação (sites e apps). Escolha uma área, filtre por categoria e clique num projeto para ver os detalhes.</p>
+<ul class="g-skills mono" aria-label="Skills">
+<li>Front-end</li><li>Back-end</li><li>UX/UI</li><li data-i18n="skill-brand">Identidade visual</li>
+</ul>
+</div>
 
-        <div class="menu-mobile">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-    </header>
+<!-- Foto com moldura temática: Opala SS e plaquinha -->
+<figure class="g-photo">
+<div class="gp-frame"><img src="images/gustavo.webp" alt="Gustavo Strada" width="900" height="1200"></div>
+<img class="gp-car" src="images/chevy-chevelle.webp" alt="" aria-hidden="true">
+<span class="mono gp-plate">Dev + Design</span>
+</figure>
 
-    <main class="gallery">
+</div>
 
-        <div class="g-intro">
-            <span class="g-eyebrow">Gustavo Strada</span>
-            <h1 class="g-title" data-i18n="gallery-title">Design Gallery</h1>
-            <p class="g-subtitle" data-i18n="gallery-subtitle">Selected pieces from my work in UX/UI and visual identity.</p>
-        </div>
+<!-- Menu de áreas: Design / Programação -->
+<div class="areas" role="tablist" aria-label="Áreas">
+<button class="area active" id="area-design" data-area="design" role="tab" aria-selected="true">
+<span class="area-txt"><b data-i18n="area-design">Design</b><small class="mono area-sub" data-i18n="area-design-sub">UX/UI · Identidade visual</small></span>
+<span class="area-count" id="count-design"></span>
+</button>
+<button class="area" id="area-dev" data-area="dev" role="tab" aria-selected="false">
+<span class="area-txt"><b data-i18n="area-dev">Programação</b><small class="mono area-sub" data-i18n="area-dev-sub">Full Stack · Apps</small></span>
+<span class="area-count" id="count-dev"></span>
+</button>
+</div>
 
-        <article class="piece">
-            <div class="piece-frame">
-                <img src="images/landing-page-automotiva.png" alt="Landing page para empresa automotiva de restauração de carros clássicos" class="piece-img">
-            </div>
+<!-- Nota da aba Programação: por que o deploy é no GitHub -->
+<aside class="dev-note" id="dev-note" hidden>
+<i class='bx bxl-github'></i>
+<div>
+<h3 data-i18n="dev-note-title">Por que quase não tem app aqui?</h3>
+<p data-i18n="dev-note-text">A maioria dos meus projetos não está disponível para download na Play Store ou na App Store, e isso é intencional. Acredito que acessibilidade também significa facilitar o primeiro contato com a tecnologia.</p>
+<p data-i18n="dev-note-text2">Como alguém da área, sei que nem sempre estamos dispostos a instalar um aplicativo no celular só para conhecer uma solução. Por isso, prefiro fazer o deploy completo dos meus projetos e disponibilizá-los online, permitindo que qualquer pessoa acesse diretamente pelo navegador, em qualquer dispositivo, sem precisar instalar nada.</p>
+<p data-i18n="dev-note-text3">Essa escolha também reflete minha preocupação com a experiência de quem utiliza ou conhece meu trabalho: reduzir barreiras, simplificar o acesso e tornar a tecnologia mais próxima das pessoas. À primeira vista, podem até parecer sites, mas são aplicações completas.</p>
+</div>
+</aside>
 
-            <div class="piece-info">
-                <span class="piece-tag" data-i18n="piece1-tag">01 — Landing Page</span>
-                <h2 class="piece-name" data-i18n="piece1-name">Classic Car Restorer</h2>
-                <p class="piece-desc" data-i18n="piece1-desc">
-                    A landing page for an automotive brand focused on restoring classic cars.
-                    I went with black and red to keep it bold and mechanical, paired with a heavy,
-                    condensed typeface that gives the layout some weight. The abandoned car in the
-                    showcase section ties it all together — restoring is also a way of caring.
-                </p>
+<!-- Filtros por categoria -->
+<div class="toolbar" id="toolbar">
+<div class="filters" id="filters" role="group" aria-label="Categorias"></div>
+<span class="mono count" id="count" aria-live="polite"></span>
+</div>
 
-                <dl class="piece-meta">
-                    <div><dt data-i18n="piece-meta-type">Type</dt><dd data-i18n="piece1-type">Web Design Landing Page</dd></div>
-                    <div><dt data-i18n="piece-meta-tool">Tool</dt><dd data-i18n="piece1-tool">Figma</dd></div>
-                    <div><dt data-i18n="piece-meta-focus">Focus</dt><dd data-i18n="piece1-focus">UI Design · Visual Identity</dd></div>
-                </dl>
+<!-- Aparece quando a área ainda não tem projetos -->
+<div class="empty" id="empty" hidden>
+<h2 data-i18n="empty-title">Projetos de programação em breve</h2>
+<p data-i18n="empty-text">Estou organizando os projetos de código para publicar aqui. Enquanto isso, dá uma olhada no meu GitHub.</p>
+<a class="btn" href="https://github.com/StradaGustavo" target="_blank" rel="noopener" data-i18n="btn-github">Ver GitHub</a>
+</div>
 
-                <span class="piece-status">
-                    <i class='bx bx-time-five'></i>
-                    <span data-i18n="piece1-status">Personal project — still in development</span>
-                </span>
-            </div>
-        </article>
+<!-- Carrossel: os cards são gerados pelo projetos.js (lista PROJECTS) -->
+<div class="deck" id="deck" role="region" aria-roledescription="carousel" aria-label="Projetos">
+<div class="deck-stage">
+<div class="works" id="works"></div>
+<button class="deck-btn deck-prev" id="d-prev" aria-label="Anterior"><i class='bx bx-chevron-left'></i></button>
+<button class="deck-btn deck-next" id="d-next" aria-label="Próximo"><i class='bx bx-chevron-right'></i></button>
+</div>
+<div class="deck-info">
+<div class="d-count"><b id="d-num">01</b><span class="mono" id="d-total"></span></div>
+<div class="d-text"><span class="side" id="d-cat"></span><h2 id="d-name"></h2></div>
+<button class="btn" id="d-open" data-i18n="view-project">Ver projeto</button>
+</div>
+<div class="deck-dots" id="deck-dots"></div>
+</div>
 
-        <article class="piece">
-            <div class="piece-frame piece-carousel">
-                <div class="carousel-track">
-                    <img src="images/social_media-1.jpeg" alt="Identidade visual para redes sociais — slide 1" class="piece-img carousel-slide">
-                    <img src="images/social_media-2.jpeg" alt="Identidade visual para redes sociais — slide 2" class="piece-img carousel-slide">
-                    <img src="images/social_media-3.jpeg" alt="Identidade visual para redes sociais — slide 3" class="piece-img carousel-slide">
-                    <img src="images/social_media-4.png" alt="Identidade visual para redes sociais — slide 4" class="piece-img carousel-slide">
-                </div>
+</div></main>
 
-                <button class="carousel-btn carousel-prev" aria-label="Slide anterior"><i class='bx bx-chevron-left'></i></button>
-                <button class="carousel-btn carousel-next" aria-label="Próximo slide"><i class='bx bx-chevron-right'></i></button>
+<!-- ===== JANELA COM OS DETALHES DO PROJETO ===== -->
+<div class="modal" id="modal" aria-hidden="true">
+<div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="m-name">
+<div class="modal-scroll">
+<button class="modal-close" id="m-close" aria-label="Fechar"><i class='bx bx-x'></i></button>
 
-                <div class="carousel-dots">
-                    <span class="carousel-dot" data-index="0"></span>
-                    <span class="carousel-dot" data-index="1"></span>
-                    <span class="carousel-dot" data-index="2"></span>
-                    <span class="carousel-dot" data-index="3"></span>
-                </div>
-            </div>
+<!-- Seções do projeto (catálogo, posts, cartão...). Só aparece nos projetos que têm "sections" -->
+<div class="modal-sections" id="m-sections"></div>
 
-            <div class="piece-info">
-                <span class="piece-tag" data-i18n="piece2-tag">02 — Social Media</span>
-                <h2 class="piece-name" data-i18n="piece2-name">Identidade Visual para Redes Sociais</h2>
-                <p class="piece-desc" data-i18n="piece2-desc">
-                    Conteúdo para redes sociais com foco em manter a identidade visual da marca
-                    consistente em cada post. Trabalhei composição, hierarquia tipográfica e paleta
-                    de cores pra criar peças que ficam reconhecíveis de cara.
-                </p>
+<div class="modal-media">
+<div class="m-bar">
+<button class="m-back" id="m-back" type="button"><i class='bx bx-arrow-back'></i><span id="m-back-label" data-i18n="back-sections">Voltar às seções</span></button>
+<span class="mono m-set" id="m-set"></span>
+</div>
+<div class="stage">
+<div class="stage-scroll"><img id="m-img" src="" alt=""></div>
+<button class="m-expand" id="m-expand" aria-label="Tela cheia"><i class='bx bx-fullscreen'></i></button>
+<button class="m-btn m-prev" id="m-prev" aria-label="Anterior"><i class='bx bx-chevron-left'></i></button>
+<button class="m-btn m-next" id="m-next" aria-label="Próximo"><i class='bx bx-chevron-right'></i></button>
+</div>
+<div class="m-nav">
+<span class="mono m-count" id="m-count"></span>
+<div class="m-dots" id="m-dots"></div>
+</div>
+</div>
 
-                <dl class="piece-meta">
-                    <div><dt data-i18n="piece-meta-type">Type</dt><dd data-i18n="piece2-type">Social Media</dd></div>
-                    <div><dt data-i18n="piece-meta-tool">Tool</dt><dd data-i18n="piece2-tool">Canva</dd></div>
-                    <div><dt data-i18n="piece-meta-focus">Focus</dt><dd data-i18n="piece2-focus">Identidade Visual · Mídias Sociais</dd></div>
-                </dl>
+<div class="modal-info">
+<span class="side" id="m-tag"></span>
+<h2 class="m-name" id="m-name"></h2>
+<div class="m-desc" id="m-desc"></div>
+<dl class="m-meta">
+<div><dt data-i18n="piece-meta-type">Tipo</dt><dd id="m-type"></dd></div>
+<div><dt id="m-tool-label" data-i18n="piece-meta-tool">Ferramenta</dt><dd id="m-tool"></dd></div>
+<div><dt data-i18n="piece-meta-focus">Foco</dt><dd id="m-focus"></dd></div>
+</dl>
+<div id="m-extra"></div>
+</div>
+</div><!-- /modal-scroll -->
+</div>
+</div>
 
-                <a href="https://www.instagram.com/stradaesilvaseguros?igsh=MTNvNzFmZW50dXphcA%3D%3D" target="_blank" class="piece-link">
-                    <i class='bx bxl-instagram'></i>
-                    <span data-i18n="piece-link-instagram">See more on Instagram</span>
-                </a>
-            </div>
-        </article>
+<!-- ===== IMAGEM EM TELA CHEIA ===== -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+<button class="lb-close" id="lb-close" aria-label="Fechar"><i class='bx bx-x'></i></button>
+<button class="lb-btn lb-prev" id="lb-prev" aria-label="Anterior"><i class='bx bx-chevron-left'></i></button>
+<div class="lb-view" id="lb-view"><img id="lb-img" src="" alt=""></div>
+<button class="lb-btn lb-next" id="lb-next" aria-label="Próximo"><i class='bx bx-chevron-right'></i></button>
+<span class="mono lb-count" id="lb-count"></span>
+</div>
 
-        <article class="piece">
-            <div class="piece-frame piece-carousel piece-portrait">
-                <div class="carousel-track">
-                    <img src="images/Projetos/Catalogo/1.png" alt="Catálogo de globos Libreria Editora — página 1" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/2.png" alt="Catálogo de globos Libreria Editora — página 2" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/3.png" alt="Catálogo de globos Libreria Editora — página 3" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/4.png" alt="Catálogo de globos Libreria Editora — página 4" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/5.png" alt="Catálogo de globos Libreria Editora — página 5" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/6.png" alt="Catálogo de globos Libreria Editora — página 6" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/7.png" alt="Catálogo de globos Libreria Editora — página 7" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/8.png" alt="Catálogo de globos Libreria Editora — página 8" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/9.png" alt="Catálogo de globos Libreria Editora — página 9" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/10.png" alt="Catálogo de globos Libreria Editora — página 10" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/11.png" alt="Catálogo de globos Libreria Editora — página 11" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/12.png" alt="Catálogo de globos Libreria Editora — página 12" class="piece-img carousel-slide">
-                    <img src="images/Projetos/Catalogo/13.png" alt="Catálogo de globos Libreria Editora — página 13" class="piece-img carousel-slide">
-                </div>
+<!-- ===== CONTATO / RODAPÉ: igual ao da home ===== -->
+<footer id="contato" class="cta"><div class="wrap">
+<div class="cta-grid">
+<!-- Disco de vinil (33 rpm) de um lado e anilha do outro, os dois girando -->
+<img class="spin spin-disc" src="images/disco-vinil.webp" alt="" aria-hidden="true" width="560" height="560">
+<div class="cta-body">
+<h2 data-i18n="cta-title">Bora tirar sua ideia da garagem?</h2>
+<p data-i18n="cta-text">Site, app ou identidade visual: me chama no WhatsApp e a gente coloca ela na estrada.</p>
+<a class="btn" href="https://api.whatsapp.com/send?phone=5511952288784&amp;text=Ol%C3%A1%20Gustavo!%20Vim%20pelo%20seu%20portfolio." target="_blank" rel="noopener" data-i18n="btn-chat">Chamar no WhatsApp</a>
+<div class="links"><a href="https://www.linkedin.com/in/gustavo-strada-002a3b3a6/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/StradaGustavo" target="_blank" rel="noopener">GitHub</a></div>
+</div>
+<img class="spin spin-plate" src="images/anilha.webp" alt="" aria-hidden="true" width="560" height="560">
+</div>
+<p class="copy">© 2026 Gustavo Strada Silva</p></div></footer>
 
-                <button class="carousel-btn carousel-prev" aria-label="Página anterior"><i class='bx bx-chevron-left'></i></button>
-                <button class="carousel-btn carousel-next" aria-label="Próxima página"><i class='bx bx-chevron-right'></i></button>
-
-                <div class="carousel-dots">
-                    <span class="carousel-dot" data-index="0"></span>
-                    <span class="carousel-dot" data-index="1"></span>
-                    <span class="carousel-dot" data-index="2"></span>
-                    <span class="carousel-dot" data-index="3"></span>
-                    <span class="carousel-dot" data-index="4"></span>
-                    <span class="carousel-dot" data-index="5"></span>
-                    <span class="carousel-dot" data-index="6"></span>
-                    <span class="carousel-dot" data-index="7"></span>
-                    <span class="carousel-dot" data-index="8"></span>
-                    <span class="carousel-dot" data-index="9"></span>
-                    <span class="carousel-dot" data-index="10"></span>
-                    <span class="carousel-dot" data-index="11"></span>
-                    <span class="carousel-dot" data-index="12"></span>
-                </div>
-            </div>
-
-            <div class="piece-info">
-                <span class="piece-tag" data-i18n="piece3-tag">03 — Catalog</span>
-                <h2 class="piece-name" data-i18n="piece3-name">Globe Catalog 2026</h2>
-                <p class="piece-desc" data-i18n="piece3-desc">
-                    Product catalog for Libreria Editora, covering its line of globes. It has 13 pages: a cover, a table of contents, and a dedicated page for each globe model, all built on the same grid so the products are easy to compare. A navy blue and white palette keeps the whole catalog clean and consistent. Created as part of my work in the company's marketing team.
-                </p>
-
-                <dl class="piece-meta">
-                    <div><dt data-i18n="piece-meta-type">Type</dt><dd data-i18n="piece3-type">Product Catalog</dd></div>
-                    <div><dt data-i18n="piece-meta-tool">Tool</dt><dd data-i18n="piece3-tool">Canva</dd></div>
-                    <div><dt data-i18n="piece-meta-focus">Focus</dt><dd data-i18n="piece3-focus">Editorial Design · Layout</dd></div>
-                </dl>
-
-                <span class="piece-status">
-                    <i class='bx bx-briefcase'></i>
-                    <span data-i18n="piece3-status">Professional project — Libreria Editora</span>
-                </span>
-            </div>
-        </article>
-
-        <article class="piece">
-            <div class="piece-frame piece-portrait">
-                <img src="images/Projetos/Post-libreria.png" alt="Post da Libreria Editora: Venda sem estoque — nós armazenamos, embalamos e enviamos para seu cliente" class="piece-img">
-            </div>
-
-            <div class="piece-info">
-                <span class="piece-tag" data-i18n="piece4-tag">04 — Social Media Post</span>
-                <h2 class="piece-name" data-i18n="piece4-name">Sell Without Stock</h2>
-                <p class="piece-desc" data-i18n="piece4-desc">
-                    A social media post for Libreria Editora promoting its sell-without-stock model: the company stores, packs, and ships the products, so the reseller only has to focus on selling. The layout pairs a bold gold headline with a clear three-point checklist on the company's navy blue, and combines a globe with a phone mockup of the company profile to tie the message to the product.
-                </p>
-
-                <dl class="piece-meta">
-                    <div><dt data-i18n="piece-meta-type">Type</dt><dd data-i18n="piece4-type">Social Media Post</dd></div>
-                    <div><dt data-i18n="piece-meta-tool">Tool</dt><dd data-i18n="piece4-tool">Canva</dd></div>
-                    <div><dt data-i18n="piece-meta-focus">Focus</dt><dd data-i18n="piece4-focus">Visual Identity · Product Promotion</dd></div>
-                </dl>
-
-                <a href="https://www.instagram.com/p/Da53NU7D74s/?stkn=ZTZzczVwZXRvZXUy" target="_blank" rel="noopener noreferrer" class="piece-link">
-                    <i class='bx bxl-instagram'></i>
-                    <span data-i18n="piece-link-instagram">See more on Instagram</span>
-                </a>
-            </div>
-        </article>
-
-    </main>
-
-    <footer>
-        <div class="social-midias-footer">
-            <a href="https://www.linkedin.com/in/gustavo-strada-002a3b3a6/" target="_blank" data-tooltip="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/StradaGustavo?tab=overview&from=2025-01-01&to=2025-01-08" target="_blank" data-tooltip="GitHub"><i class='bx bxl-github'></i></a>
-            <a href="../cv/gustavo-strada-cv.pdf" download data-tooltip="Download CV" data-i18n-tooltip="tooltip-cv"><i class='bx bx-download'></i></a>
-        </div>
-
-        <div class="nav-footer">
-            <a href="../index.html#services"   data-i18n="footer-services">Services</a>
-            <a href="https://stradagustavo.github.io/portfolio/"       data-i18n="footer-about">About Me</a>
-            <a href="../index.html#experience" data-i18n="footer-experience">Experience</a>
-            <a href="../index.html#portifolio" data-i18n="footer-projects">Projects</a>
-        </div>
-
-        <p data-i18n="footer-copy">Copyright &copy; 2026 by &lt;/Gustavo Strada Silva&gt;. All Right Reserved.</p>
-    </footer>
-
-</body>
 <script src="js/script.js"></script>
+</body>
 </html>
