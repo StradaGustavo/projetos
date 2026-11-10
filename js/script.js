@@ -18,6 +18,29 @@ window.addEventListener('resize', updateActiveNav);
 updateActiveNav();
 
 // =============================================
+// MENU MOBILE — sidebar que desliza da direita
+// =============================================
+(function () {
+    const nav     = document.getElementById('menu');
+    const burger  = document.getElementById('burger');
+    const overlay = document.getElementById('overlay');
+    if (!nav || !burger || !overlay) return;
+
+    function setMenu(open) {
+        nav.classList.toggle('open', open);
+        burger.classList.toggle('open', open);
+        overlay.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    burger.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    overlay.addEventListener('click', () => setMenu(false));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 820) setMenu(false); });
+})();
+
+// =============================================
 // PROJETOS — para adicionar um trabalho novo:
 //   1) acrescente um objeto na lista abaixo
 //   2) crie as chaves pieceN-name / -desc / -type / -tool / -focus
